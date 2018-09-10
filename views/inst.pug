@@ -1,0 +1,26 @@
+//- inst.pug
+doctype html
+html
+  include ./includes/header.pug
+  body
+    .container-fluid
+      h1#h1
+        | Suche
+
+      include ./includes/navbar.pug
+
+      h2#h2
+        | Deine Suche
+      .col-sm-6
+        p
+          | Format = id|coordinates|name|img-url|fachbereich
+        ul
+          each val, index in data
+            li= data[index].id + '|' + data[index].marker[0] + ':' + data[index].marker[1] + '|' + data[index].name + '|' + data[index].imgurl + '|' + data[index].fach
+              br
+              a(type="button" href="http://localhost:3000/suche/" + data[index].id)
+                | edit
+              br
+              button(type="button" onclick="deleteInst('" + data[index].id + "')")
+                | delete
+          

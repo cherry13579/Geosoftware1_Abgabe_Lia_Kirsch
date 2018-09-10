@@ -1,0 +1,22 @@
+//- suche.pug
+doctype html
+html
+  include ./includes/header.pug
+  body
+    .container-fluid
+      h1#h1
+        | Suche
+
+      include ./includes/navbar.pug
+
+      h2#h2
+        | Hier kannst du von dir angelegte Objekte suchen:
+      .row
+        .col-sm-4()
+          textarea.form-control#search-query(rows="8" placeholder="Schreib hier herein, was du suchst!")
+      .row
+        .col-sm-4
+          button.button1(type="button" onclick="searchInst()")
+            | Suche ein Institut
+          button.button1(type="button" onclick="window.location.href='/suche/inst/all'")
+            | Alle Institute zeigen

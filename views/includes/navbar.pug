@@ -1,0 +1,21 @@
+//- includes/navbar.pug
+nav.navbar.navbar-inverse
+ .container-fluid
+  .navbar-header
+   button(class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false")
+    span.sr-only
+      | Toggle navigation
+    span.icon-bar
+    span.icon-bar
+    span.icon-bar
+  .collapse.navbar-collapse#bs-example-navbar-collapse-1
+    mixin item(title, url)
+      li(class=active == title ? 'active' : '')
+        a(href=url)= title
+
+    ul#menu.nav.navbar-nav
+      +item('Start', '/')
+      +item('Karte', '/mappage')
+      +item('Suche', '/suche')
+      +item('Impressum', '/impressum')
+      

@@ -1,0 +1,52 @@
+//- one-object.pug
+doctype html
+html
+  include ./includes/header.pug
+  body
+    .container-fluid
+      h1#h1
+        | Suche
+
+      include ./includes/navbar.pug
+
+      h2#h2
+        | Deine Suche
+      .col-sm-4
+        .form-group
+          label
+            |ID
+          input.form-control#id(type="text" disabled value=id)
+        .form-group
+          label
+            |Koordinaten
+          input.form-control#coordinates(type="text" value=coords)
+        .form-group
+          label
+            |Name des Instituts
+          input.form-control#name(type="text" value=name)
+        .form-group
+          label
+            |img-url
+          input.form-control#imgurl(type="text" value=imgurl)
+        .form-group
+          label
+            |Fachbereich
+          input.form-control#fach(type="text" value=fach)
+            
+        button.button1(type="button" onclick="updateInst()")
+          |Updaten
+          
+      .modal.fade#status-box(tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true")
+        .modal-dialog(role="document")
+          .modal-content
+            .modal-header
+              h5.modal-title#modal-title
+                | Objekt Status
+              button.close(type="button" data-dismiss="modal" aria-label="Close" onClick="window.location.href=window.location.href")
+                span(aria-hidden="true")
+                  | &times;
+            .modal-body#status-box-body
+              | Überprüfe bitte nochmal deine Eingabe
+            .modal-footer
+              button.btn.btn-secondary(type="button" data-dismiss="modal" onClick="window.location.href=window.location.href")
+                | Close
